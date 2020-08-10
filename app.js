@@ -31,5 +31,11 @@ function cadastrarDespesa() {
         valor.value
   )
 
-  console.log(despesa)
+  gravar(despesa)
+}
+
+// Função que armazena os dados no local storage, 'd' = despesa
+function gravar(d) {
+    // Convertendo o item em JSON para armazenar no local storage
+    localStorage.setItem('despesa', JSON.stringify(d))
 }
