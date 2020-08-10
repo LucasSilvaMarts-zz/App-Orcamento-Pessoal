@@ -21,12 +21,13 @@ class Bd {
         }
     }
 
-    // Verifica se já existe um id no storage
-    getProximoId() {
+     // Verifica se já existe um id no storage
+     getProximoId() {
         let proximoId = localStorage.getItem('id')
         return parseInt(proximoId) + 1
     }
 
+    // Gravando os dados
     gravar(d) { // 'd' = despesa
         
         let id = this.getProximoId()
@@ -41,7 +42,7 @@ class Bd {
 
 let bd = new Bd() 
 
-
+// Função de cadastrar despesas
 // Capturando as informações dos inputs html
 function cadastrarDespesa() {
   // Referenciando as informações em variáveis para uso posterior  
