@@ -10,6 +10,37 @@ class Despesa {
     }
 }
 
+// Inserindo dados no local storage
+class Bd {
+
+    constructor() {
+        let id = localStorage.getItem('id')
+
+        if(id === null) {
+            localStorage.setItem('id', 0)
+        }
+    }
+
+    // Verifica se já existe um id no storage
+    getProximoId() {
+        let proximoId = localStorage.getItem('id')
+        return parseInt(proximoId) + 1
+    }
+
+    gravar(d) { // 'd' = despesa
+        
+        let id = this.getProximoId()
+
+        // Convertendo o item em JSON para armazenar no local storage
+        localStorage.setItem(id, JSON.stringify(d))
+
+        // Atualiza o documento id com o novo id recuperado
+        localStorage.setItem('id', id)
+    }    
+}
+
+let bd = new Bd() 
+
 
 // Capturando as informações dos inputs html
 function cadastrarDespesa() {
@@ -31,11 +62,7 @@ function cadastrarDespesa() {
         valor.value
   )
 
-  gravar(despesa)
+  bd.gravar(despesa)
 }
 
-// Função que armazena os dados no local storage, 'd' = despesa
-function gravar(d) {
-    // Convertendo o item em JSON para armazenar no local storage
-    localStorage.setItem('despesa', JSON.stringify(d))
-}
+
