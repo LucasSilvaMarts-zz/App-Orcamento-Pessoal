@@ -8,6 +8,16 @@ class Despesa {
         this.descricao = descricao 
         this.valor = valor
     }
+
+    validarDados() {
+        for(let i in this) {
+            // Recuperando o valor dos atributos do objeto
+            if(this[i] == undefined || this[i] == '' || this[i] == null ) {
+                return false
+            }
+        }
+        return true
+    }
 }
 
 // Inserindo dados no local storage
@@ -62,8 +72,14 @@ function cadastrarDespesa() {
         descricao.value, 
         valor.value
   )
-
-  bd.gravar(despesa)
+  
+  if(despesa.validarDados()) {
+    //bd.gravar(despesa)
+    console.log('Dados validos')
+  } else {
+    console.log('Dados invalidos')
+  }
+    
 }
 
 
