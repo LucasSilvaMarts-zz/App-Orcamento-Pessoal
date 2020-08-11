@@ -77,7 +77,7 @@ function cadastrarDespesa() {
     //bd.gravar(despesa)
     console.log('Dados validos')
   } else {
-    console.log('Dados invalidos')
+    $('#erroGravacao').modal('show')
   }
     
 }
