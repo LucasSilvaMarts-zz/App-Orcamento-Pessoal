@@ -75,9 +75,22 @@ function cadastrarDespesa() {
   
   if(despesa.validarDados()) {
     bd.gravar(despesa)
-    $('#sucessoGravacao').modal('show')
+
+    document.getElementById('modal_titulo').innerHTML = 'Gravação feita com sucesso'
+    document.getElementById('modal_titulo_div').className = 'modal-header text-success'
+    document.getElementById('button').className = 'btn btn-success'
+    document.getElementById('modal-text').innerHTML = 'Todos os dados foram salvos!'
+
+    $('#modalRegistraDespesa').modal('show')
   } else {
-    $('#erroGravacao').modal('show')
+     
+    document.getElementById('modal_titulo').innerHTML = 'Erro na inclusão do registro'
+    document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
+    document.getElementById('button').className = 'btn btn-danger'
+    document.getElementById('button').innerHTML = 'Voltar e corrigir'
+    document.getElementById('modal-text').innerHTML = 'Ainda esxitem campos para serem preenchidos.'
+    
+    $('#modalRegistraDespesa').modal('show')
   }
     
 }
