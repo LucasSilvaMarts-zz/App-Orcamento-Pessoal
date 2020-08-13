@@ -20,7 +20,7 @@ class Despesa {
     }
 }
 
-// Inserindo dados no local storage
+// Inserindo dados no local storage (Banco de dados)
 class Bd {
 
     constructor() {
@@ -73,6 +73,10 @@ class Bd {
         }
 
         return despesas
+    }
+    // Faz a comunicação com o banco de dados
+    pesquisar(despesa) {
+        console.log(despesa)
     }
 }
 
@@ -171,3 +175,21 @@ function carregaListaDespesas() {
         linha.insertCell(3).innerHTML = d.valor
     }) 
 }   
+
+// Pesquisa de despesas
+
+function pesquisarDespesa() {
+
+    // Recuperando o valor do campo
+
+    let ano = document.getElementById('ano').value
+    let mes = document.getElementById('mes').value
+    let dia = document.getElementById('dia').value
+    let tipo = document.getElementById('tipo').value
+    let descricao = document.getElementById('descricao').value
+    let valor = document.getElementById('valor').value
+
+    let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
+
+    bd.pesquisar(despesa)
+}
