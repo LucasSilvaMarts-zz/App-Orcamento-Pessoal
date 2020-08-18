@@ -10,6 +10,8 @@ O projeto **App Orçamento Pessoal** é um app web de registro de despesas desen
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias.
 
+- Bootstrap 4
+
 - JavaScript - ECMAScript 6
 
 - JSON 
