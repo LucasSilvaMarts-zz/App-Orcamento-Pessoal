@@ -17,7 +17,7 @@ class Despesa {
             }
         }
         return true
-    }
+    }        
 }
 
 // Inserindo dados no local storage (Banco de dados)
